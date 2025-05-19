@@ -1,0 +1,70 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<section>
+    <div class="p-3 rounded-top fw-bold bg-dark">
+        <h4 class="text-white">Search Transporters</h4>
+    </div>
+    <div class="searchdiv">
+        <div class="row">
+            <!-- Name Search Form -->
+            <div class="col-md-4 col-sm-12">
+                <div class="p-3 mb-2 bg-light rounded shadow"  style="width: 100%;">
+                    <div class="">
+                        <form action="/supplier/search/name" method="get">
+                            <label for="searchbyname" class="form-label">Search By Name</label>
+                            <input type="text" class="form-control" id="searchbyname" name="searchbyname" placeholder="Search here..." value="{{searchkeyname}}">
+                            <button type="submit" class="btn btn-warning mt-3"><i class="fa fa-search" aria-hidden="true"></i> &nbsp;Search</button>
+                        </form>
+                        <p class="text-danger">{{namemsg}}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Name Search Form -->
+
+            <!-- Mobile Search Form -->
+            <div class="col-md-4 col-sm-12">
+                <div class="p-3 mb-2 bg-light rounded shadow"  style="width: 100%;">
+                    <div class="">
+                        <form action="/supplier/search/mobile" method="get">
+                            <label for="searchbymob" class="form-label">Search By Mobile</label>
+                            <input type="text" class="form-control" id="searchbymob" name="searchbymob" placeholder="Search here..." value="{{searchkeymob}}">
+                            <button type="submit" class="btn btn-warning mt-3"><i class="fa fa-search" aria-hidden="true"></i> &nbsp;Search</button>
+                        </form>
+                        <p class="text-danger">{{mobmsg}}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Mobile Search Form -->
+
+            <!-- Address Search Form -->
+            <div class="col-md-4 col-sm-12">
+                <div class="p-3 mb-2 bg-light rounded shadow"  style="width: 100%;">
+                    <div class="">
+                        <form action="/supplier/search/address" method="get">
+                            <label for="searchbyaddress" class="form-label">Search By Address</label>
+                            <input type="text" class="form-control" id="searchbyaddress" name="searchbyaddress" placeholder="Search here..." value="{{searchkeyaddr}}">
+                            <button type="submit" class="btn btn-warning mt-3"><i class="fa fa-search" aria-hidden="true"></i> &nbsp;Search</button>
+                        </form>
+                        <p class="text-danger">{{addrmsg}}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Name Search Form -->
+        </div>
+    </div>
+
+    <div class="p-3 mt-3 rounded bg-white">
+        <h3>Search Result: </h3>
+        {% if dataset|length > 0 %}
+            <!-- Dataset -->
+            <p>Found: {{dataset|length}} Transporters</p>
+            {% for item in dataset %}
+                <li><a href="/supplier/profile/{{ item.id }}">{{ item.businessname }}</a></li>
+            {% endfor %}
+        {% else %}
+            <p>No Transporters Found</p>
+        {% endif %}
+    </div>
+</section>
+{% endblock content %}

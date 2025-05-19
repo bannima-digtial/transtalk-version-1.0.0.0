@@ -1,0 +1,80 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<section>
+    <div class="p-3 rounded-top fw-bold bg-dark">
+        <h4 class="text-white">
+            Transporters List
+            <span style="float: right;"><a href="{% url 'supplier-add' %}" class="btn btn-warning"> <i class="fa fa-plus-square" aria-hidden="true"></i>&nbsp; Add Transporter</a></span>
+        </h4>
+    </div>
+    <!-- <div class="custome-container p-3 mb-2" style="justify-content: left;">
+        <div style="width: 100%;">
+            <span style="float: left;">
+                <form action="">
+                        <input type="text" value="" placeholder="Search here..." class="p-1">
+                        <input type="button" value="Search" class="btn btn-warning">
+                </form>
+            </span> &emsp;
+            <span style="float: right;"><a href="{% url 'supplier-add' %}" class="btn btn-info"> <b>+</b> Add Transporter</a></span>
+        </div>
+        
+    </div> -->
+    <div class="custome-container">
+        <!-- div to display data of each row -->
+            <table border="0" class="table table-hover">
+                <thead class="bg-warning">
+                    <tr>
+                        <th>#</th>
+                        <th>Business Name</th>
+                        <th>City</th>
+                        <th>Contact</th>
+                        <!-- <th>Action</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for data in dataset%}
+                    
+                    
+                    <tr>
+                        <td></td>
+                        <td>
+                            <a href="supplier/profile/{{data.id}}" class="link-offset-2 link-underline link-underline-opacity-0 text-dark" style="text-decoration: none;">
+                            {{data.businessname|upper}}
+                            </a>
+                        </td>
+                        <td>{{data.city}}</td>
+                        <td>{{data.fastconnect}}</td>
+                        <!-- <td><a class="btn btn-danger text-white" href="supplier/profile/{{data.id}}">Click here</a></td> -->
+                        
+                    </tr>
+                    {%endfor%}
+                </tbody>
+
+            </table>
+            <hr>
+            <!-- Pagination  -->
+            <div aria-label="...">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <p class="btn">Page {{dataset.number}} of {{dataset.paginator.num_pages}}</p>
+                    </li>
+                {% if dataset.has_previous%}
+                  <li class="page-item">
+                    <a class="page-link text-danger" href="?page={{dataset.previous_page_number}}" tabindex="-1">Previous</a>
+                  </li>
+                {%endif%}
+                  <!-- <li class="page-item active">
+                    <a class="page-link" href="#">{{dataset.number}} of {{dataset.paginator.num_pages}}</a>
+                  </li> -->
+                {% if dataset.has_next %}
+                  <li class="page-item active">
+                    <a class="page-link" href="?page={{dataset.next_page_number}}">Next</a>
+                  </li>
+                {%endif%}
+                </ul>
+                
+            </div>
+        </div>
+</section>
+{% endblock content %}

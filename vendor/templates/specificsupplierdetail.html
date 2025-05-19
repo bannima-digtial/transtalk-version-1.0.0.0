@@ -1,0 +1,48 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<section>
+    <div class="p-3 rounded-top fw-bold bg-secondary">
+        <h4 class="text-white">
+            Supplier List
+            <span style="float: right;"><a href="supplier/add" class="btn btn-info">Add</a></span>
+        </h4>
+    </div>
+    <div class="custome-container">
+        <!-- div to display data of each row -->
+            <table border="0" class="table">
+                <tr>
+                    <th>Business Name :</th>
+                    <td colspan="2"><?php echo $data['business_name']; ?></td>
+                    <td class="text-center">
+                        <a class="btn btn-info" href="viewsupplier.php?id=<?php echo $data['id'];?>" style="float: right;">Action</a> &emsp;
+                        <!-- <a class="text-danger fw-bold"><i class="fa-solid fa-xmark"> </i> Delete</a> -->
+                    </td>
+                    <?php echo $data['remark']; ?>
+                </tr>
+
+                <tr>
+                    <th>Address :</th>
+                    <td colspan="2"><?php echo $data['address']; ?></td>
+                </tr>
+
+                <tr>
+                    <th>Contact Person :</th>
+                    <td><?php echo $data['clientname']; ?></td>
+
+                    <th>Mobile :</th>
+                    <td><?php echo $data['mobile']; ?></td>
+                </tr>
+
+                <tr>
+                    <th>Email :</th>
+                    <td><?php echo $data['email']; ?></td>
+
+                    <th>Website :</th>
+                    <td><?php echo $data['website']; ?></td>
+                </tr>
+
+            </table>
+        </div>
+</section>
+{% endblock content %}

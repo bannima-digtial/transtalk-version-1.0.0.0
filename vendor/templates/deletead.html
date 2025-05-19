@@ -1,0 +1,16 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<section>
+    <div class="p-3 rounded-top fw-bold bg-secondary">
+        <h4 class="text-white">Delete Advertise</h4>
+    </div>
+    <div class="custome-container">
+        <div class="text-center">
+                <h4>Are you sure you want delete it?</h4> <hr>
+                <a class="btn btn-primary" href="{% url 'advertise-delete' pk %}">Yes</a> &emsp;
+                <a class="btn btn-danger" href="/advertise">No</a>
+        </div>  
+    </div>
+</section>
+{% endblock content %}
