@@ -1,0 +1,77 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<section>
+    <div class="p-3 rounded-top fw-bold bg-secondary">
+        <h4 class="text-white">
+            BookingAgent List
+            
+        </h4>
+    </div>
+    <div class="custome-container p-3 mb-2" style="justify-content: left;">
+        <div style="width: 100%;">
+            <span style="float: left;">
+                <form action="">
+                        <input type="text" value="" placeholder="Search here..." class="p-1">
+                        <input type="button" value="Search" class="btn btn-warning">
+                </form>
+            </span> &emsp;
+            <span style="float: right;"><a href="{% url 'supplier-add' %}" class="btn btn-info"> <b>+</b> Add Agent</a></span>
+        </div>
+        
+    </div>
+    <div class="custome-container"> 
+
+        <table class="table" id="profiledata">
+            <tr>
+                <th>Business Name</th>
+                <td>{{data.businessname}}
+                    <span style="float: right;">User Status: {{data.user_status}}</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th>Address</th>
+                <td>{{data.address}}, {{data.city}}, {{data.state}}</td>
+            </tr>
+
+
+            <tr>
+                <th>Contact</th>
+                <td>{{data.clientname}}&nbsp;-&nbsp;{{data.contact}}</td>
+            </tr>
+
+            <tr>
+                <th>Email</th>
+                <td>{{data.email}}</td>
+            </tr>
+
+            <tr>
+                <th>Website</th>
+                <td>{{data.website}}</td>
+            </tr>
+
+            <tr>
+                <th>Remark</th>
+                <td>{{data.remark}}</td>
+            </tr>
+
+            <tr>
+                <th>Active Ads</th>
+                <td>{{data.ad_status}} &emsp;
+                    <a class=""><i class="fa-solid fa-pen"></i></a>
+                </td>
+            </tr>
+            
+            <tr>
+                <th colspan="2">
+                    <a href="{% url 'bookingagent-profile-update-form' data.id %}" class="btn btn-success">Update</a>
+                    <a href="{% url 'ba-profile-delete' data.id %}" class="btn btn-danger">Delete</a>
+                </th>
+            </tr>
+
+
+        </table>
+    </div>
+</section>
+{% endblock content %}

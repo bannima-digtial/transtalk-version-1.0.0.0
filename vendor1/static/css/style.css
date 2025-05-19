@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+body{
+    font-family: 'Lato', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 300 !important;
+    height: 100vh;
+}
+
+/* sidebar */
+
+#sidebar{
+    background: #2d2e3c;
+    font-weight: 400 !important;
+    color: #f9f9f9;
+    position: sticky;
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+}
+
+#sidebar a{
+    display: block;
+    width: 100%;
+    padding: 16px 40px;
+    cursor: pointer;
+    
+    color: #f9f9f9;
+    text-decoration: none;
+}
+
+#sidebar > a:hover{
+    background: #00000070;
+}
+
+
+
+/* main content */
+#maincontent{
+    padding: 0px 0px;
+    display: flex;
+    background: #eee;
+    
+}
+
+
+.custome-container{
+    display: flex;
+    justify-content: center;
+    background: #fff;
+    border-radius: 7px;
+    box-shadow: 10px 1px 20px #ccc;
+    padding: 40px 20px;
+}
+
+#supplier_form{
+    width: 90% !important;
+    justify-content: center;
+}
+
+#supplier_form .table tr{
+        border-style: hidden !important;
+        
+}
+
+
+#supplier_form label{
+    font-weight: 600;
+}
+
+#supplier_form #id_category label{
+    font-weight: normal;
+    padding: 3px 7px;
+
+}
